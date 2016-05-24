@@ -1,26 +1,29 @@
 {% capture iframeID %}sandbox-{{ SANDBOX_COUNTER }}{% endcapture %}
 
-```{{ include.lang }}
-{{ include.code | strip }}
-```
-<p>Output</p>
+{% capture SandboxCache %}
+    <p><strong>{{ include.lang | upcase }}</strong></p>
 
-{% if include.lang == "html" %}
+    ```{{ include.lang }}
+    {{ include.code | strip }}
+    ```
+    <p><strong>Output</strong></p>
 
-<iframe id="{{ iframeID }}"></iframe>
-<script>setIframeContents("{{ iframeID }}", "{{ include.code | strip_newlines | replace: '"', '\"' }}");</script>
-{% assign SANDBOX_COUNTER = SANDBOX_COUNTER | plus: 1 %}
+    {% if include.lang == "html" %}
+        <iframe id="{{ iframeID }}"></iframe>
+        <script>
+            setIframeContents("{{ iframeID }}", "{{ include.code | strip_newlines | replace: '"', '\"' }}");
+        </script>
 
-{% elsif include.lang == "scss" %}
+        {% assign SANDBOX_COUNTER = SANDBOX_COUNTER | plus: 1 %}
+    {% elsif include.lang == "scss" %}
+        ```scss
+        {{ include.code | scssify }}
+        ```
+    {% elsif include.lang == "markdown" %}
+        ```markdown
+        {{ include.code | markdownify }}
+        ```
+    {% endif %}
+{% endcapture %}
 
-```scss
-{{ include.code | scssify }}
-```
-
-{% elsif include.lang == "markdown" %}
-
-```markdown
-{{ include.code | markdownify }}
-```
-
-{% endif %}
+{{ SandboxCache | replace: '    ', '' }}
