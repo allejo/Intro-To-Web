@@ -9,7 +9,17 @@ repo_branch: master
 # Build settings
 markdown: kramdown
 
+kramdown:
+  input: GFM
+
 collections:
   lessons:
     output: true
     permalink: /book/:path/
+
+defaults:
+  - scope:
+      path: ""
+      type: lessons
+    values:
+      layout: post

@@ -3,8 +3,6 @@
 ---
 @charset "utf-8";
 
-
-
 // Our variables
 $base-font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 $base-font-size:   16px;
@@ -18,36 +16,28 @@ $text-color:       #111;
 $background-color: #fdfdfd;
 $brand-color:      #2a7ae2;
 
-$grey-color:       #828282;
-$grey-color-light: lighten($grey-color, 40%);
-$grey-color-dark:  darken($grey-color, 25%);
+$breakpoints: (
+    "xs": 0,
+    "sm": 780px,
+    "md": 992px,
+    "lg": 1200px
+);
 
-// Width of the content area
-$content-width:    800px;
+@mixin media-query($breakpoint) {
+    $_size: map-get($breakpoints, $breakpoint);
 
-$on-palm:          600px;
-$on-laptop:        800px;
-
-
-
-// Use media queries like this:
-// @include media-query($on-palm) {
-//     .wrapper {
-//         padding-right: $spacing-unit / 2;
-//         padding-left: $spacing-unit / 2;
-//     }
-// }
-@mixin media-query($device) {
-    @media screen and (max-width: $device) {
+    @if $_size == 0 {
         @content;
+    }
+    @else {
+        @media (min-width: $_size) {
+            @content;
+        }
     }
 }
 
-
-
-// Import partials from `sass_dir` (defaults to `_sass`)
 @import
-        "base",
-        "layout",
-        "syntax-highlighting"
+    "bs-override",
+    "code-editor",
+    "syntax-highlighting"
 ;

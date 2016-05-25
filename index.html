@@ -3,19 +3,24 @@ layout: default
 ---
 
 <div class="home">
+    <ul class="post-list">
+        {% assign chapterCount = 1 %}
+        {% assign lastChapter = "" %}
 
-  <h1 class="page-heading">Posts</h1>
+        {% for post in site.lessons %}
+            {% assign currentChapter = post.path | slice: 0, 20 %}
 
-  <ul class="post-list">
-    {% for post in site.lessons %}
-      <li>
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-  </ul>
+            {% if lastChapter != currentChapter  %}
+                <li>
+                    <h2>Chapter {{ chapterCount }}</h2>
+                </li>
 
-  <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | prepend: site.baseurl }}">via RSS</a></p>
-
+                {% assign lastChapter = currentChapter %}
+                {% assign chapterCount = chapterCount | plus: 1 %}
+            {% endif %}
+            <li>
+                <p><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></p>
+            </li>
+        {% endfor %}
+    </ul>
 </div>
