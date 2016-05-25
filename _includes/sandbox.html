@@ -1,15 +1,19 @@
+{% capture newline %}
+{% endcapture %}
+
+{% assign SANDBOX_COUNTER = 1 %}
 {% capture iframeID %}sandbox-{{ SANDBOX_COUNTER }}{% endcapture %}
+{% capture _content %}{% endcapture %}
 
 {% capture SandboxCache %}
     <p><strong>{{ include.lang | upcase }}</strong></p>
 
-    ```{{ include.lang }}
-    {{ include.code | strip }}
-    ```
+    ```{{ include.lang }}{{ include.code }}```
+
     <p><strong>Output</strong></p>
 
     {% if include.lang == "html" %}
-        <iframe id="{{ iframeID }}"></iframe>
+        <iframe id="{{ iframeID }}" class="code-sandbox"></iframe>
         <script>
             setIframeContents("{{ iframeID }}", "{{ include.code | strip_newlines | replace: '"', '\"' }}");
         </script>
@@ -26,4 +30,28 @@
     {% endif %}
 {% endcapture %}
 
-{{ SandboxCache | replace: '    ', '' }}
+{% assign SandboxCachePerLine = SandboxCache | newline_to_br | strip_newlines | split: '<br />' %}
+{% assign insideCode = false %}
+
+{% for line in SandboxCachePerLine %}
+    {% assign startOfLine = line | slice: 0, 7 %}
+    {% assign altStartOfLine = line | slice: 0, 3 %}
+
+    {% if startOfLine == "    ```" and insideCode == false %}
+        {% assign insideCode = true %}
+        {% capture _content %}{{ _content }}{{ line | replace: '    ', '' }}{% endcapture %}
+    {% elsif altStartOfLine == "```" and insideCode == true %}
+        {% assign insideCode = false %}
+        {% capture _content %}{{ _content }}$$$${{ line | replace: '    ', '' }}{% endcapture %}
+    {% else %}
+        {% if insideCode == true %}
+            {% capture _content %}{{ _content }}$$$${{ line }}{% endcapture %}
+        {% else %}
+            {% capture _content %}{{ _content }}{{ line | replace: '    ', '' }}$$$${% endcapture %}
+        {% endif %}
+    {% endif %}
+
+    {% assign _content = _content | replace: '$$$$', newline %}
+{% endfor %}
+
+{{ _content }}
