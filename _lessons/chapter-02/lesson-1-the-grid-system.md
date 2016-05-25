@@ -1,5 +1,4 @@
 ---
-layout: post
 title: The Container and Grid System
 ---
 
@@ -46,7 +45,7 @@ We'll be thinking about the desktop layout of this structure and then think abou
 
 Here's an example of how the above specification would look like in HTML using the Bootstrap framework.
 
-```html
+{% capture code %}
 <div class="row">
     <div id="main" class="col-xs-12 col-md-7 col-lg-8">
         ...
@@ -55,4 +54,5 @@ Here's an example of how the above specification would look like in HTML using t
         ...
     </div>
 </div>
-```
+{% endcapture %}
+{% include sandbox.html lang="html" code=code %}
