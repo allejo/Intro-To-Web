@@ -1,0 +1,11 @@
+$_directions: left, center, right;
+
+@each $bp in map-keys($breakpoints) {
+    @each $direction in $_directions {
+        .text-#{$bp}-#{$direction} {
+            @include media-query($bp) {
+                text-align: $direction;
+            }
+        }
+    }
+}

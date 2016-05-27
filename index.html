@@ -2,25 +2,38 @@
 layout: default
 ---
 
-<div class="home">
-    <ul class="post-list">
-        {% assign chapterCount = 1 %}
-        {% assign lastChapter = "" %}
+<section class="chapter-list">
+    {% assign chapterCount = 1 %}
+    {% assign lastChapter = "" %}
 
-        {% for post in site.lessons %}
-            {% assign currentChapter = post.path | slice: 0, 20 %}
+    {% for post in site.lessons %}
+        {% assign currentChapter = post.path | slice: 0, 20 %}
 
-            {% if lastChapter != currentChapter  %}
-                <li>
-                    <h2>Chapter {{ chapterCount }}</h2>
-                </li>
-
-                {% assign lastChapter = currentChapter %}
-                {% assign chapterCount = chapterCount | plus: 1 %}
+        {% if lastChapter != currentChapter %}
+            {% if forloop.first == false %}
+                </ol>
             {% endif %}
-            <li>
-                <p><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></p>
-            </li>
-        {% endfor %}
-    </ul>
-</div>
+
+            <h2>Chapter {{ chapterCount }}</h2>
+
+            {% if forloop.first == false %}
+                <ol>
+            {% endif %}
+
+            {% if forloop.first %}
+                <ol>
+            {% endif %}
+
+            {% assign lastChapter = currentChapter %}
+            {% assign chapterCount = chapterCount | plus: 1 %}
+        {% endif %}
+
+        <li>
+            <p><a href="{{ post.url | prepend: site.baseurl }}">{{ post.title }}</a></p>
+        </li>
+
+        {% if forloop.last %}
+            </ol>
+        {% endif %}
+    {% endfor %}
+</section>
