@@ -1,10 +1,11 @@
 .chapter-list {
     h2 {
         font-size: 22px;
+        margin-top: 0;
+    }
 
-        &:first-of-type {
-            margin-top: 0;
-        }
+    p {
+        margin-bottom: 5px;
     }
 }
 
