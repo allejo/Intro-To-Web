@@ -1,0 +1,23 @@
+body {
+    @include theme-specific("background-color", "site-background-color");
+}
+
+.site-content,
+.site-footer {
+    @include theme-specific("color", "font-color");
+}
+
+.site-content {
+    @include theme-specific("background-color", "content-background-color");
+    @include border-bottom(5px);
+
+    padding: {
+        bottom: 15px;
+        top: 15px;
+    }
+}
+
+.site-footer {
+    margin: 15px 0;
+    padding: 15px 0;
+}

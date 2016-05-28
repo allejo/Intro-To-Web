@@ -1,0 +1,22 @@
+$default: (
+    "site-background-color": #EBEBEB,
+    "content-background-color": #FFFFFF,
+    "font-color": #000000
+);
+
+$themes: (
+    "light": $default,
+    "dark": (
+        "site-background-color": #1E1E1E,
+        "content-background-color": #000000,
+        "font-color": #FFFFFF
+    ),
+    "gold": (
+        "site-background-color": #D5C8BA,
+        "content-background-color": #E5DED6
+    ),
+    "brown": (
+        "site-background-color": #F2ECE8,
+        "content-background-color": #DFD9D6
+    )
+);

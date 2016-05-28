@@ -1,3 +1,5 @@
+// Text alignment
+
 $_directions: left, center, right;
 
 @each $bp in map-keys($breakpoints) {
@@ -8,4 +10,26 @@ $_directions: left, center, right;
             }
         }
     }
+}
+
+// Border radius
+
+@mixin border-bottom($radius) {
+    border-bottom-left-radius: $radius;
+    border-bottom-right-radius: $radius;
+}
+
+@mixin border-left($radius) {
+    border-top-left-radius: $radius;
+    border-bottom-left-radius: $radius;
+}
+
+@mixin border-right($radius) {
+    border-top-right-radius: $radius;
+    border-bottom-right-radius: $radius;
+}
+
+@mixin border-top($radius) {
+    border-top-left-radius: $radius;
+    border-top-right-radius: $radius;
 }
