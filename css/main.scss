@@ -30,14 +30,15 @@ $breakpoints: (
 ;
 
 @import
-    "code-editor",
-    "syntax-highlighting"
+    "code-editor/main",
+    "code-editor/syntax-highlighting"
 ;
 
 @import
     "bs-override",
-    "general",
-    "lessons",
     "helpers",
+    "general",
+    "pages/lessons",
+    "pages/settings",
     "site"
 ;

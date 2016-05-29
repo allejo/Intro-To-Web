@@ -1,14 +1,14 @@
 body {
-    @include theme-specific("background-color", "site-background-color");
+    @include theme-global("background-color", "site-background-color");
 }
 
 .site-content,
 .site-footer {
-    @include theme-specific("color", "font-color");
+    @include theme-global("color", "font-color");
 }
 
 .site-content {
-    @include theme-specific("background-color", "content-background-color");
+    @include theme-global("background-color", "content-background-color");
     @include border-bottom(5px);
 
     padding: {

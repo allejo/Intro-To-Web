@@ -1,0 +1,27 @@
+.colorscheme__preview {
+    border: 1px solid #efefef;
+    padding: 0 15px;
+
+    &.background {
+        @include theme-local("background-color", "site-background-color");
+
+        padding: 15px;
+    }
+
+    .content {
+        @include theme-local("background-color", "content-background-color");
+        @include theme-local("color", "font-color");
+        @include border-bottom(5px);
+
+        padding: 10px 15px;
+
+        h1 {
+            margin-top: 0;
+        }
+    }
+}
+
+.colorscheme__options {
+    padding: 15px 0;
+    text-align: center;
+}

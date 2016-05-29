@@ -1,3 +1,70 @@
+///
+/// @access private
+
+@function _theme-insert-nth ($list, $index, $value) {
+    $result: null;
+
+    @if type-of($index) != number {
+        @warn "$index: #{quote($index)} is not a number for `insert-nth`.";
+    }
+    @else if $index < 1 {
+        @warn "List index 0 must be a non-zero integer for `insert-nth`";
+    }
+    @else if $index > length($list) {
+        @warn "List index is #{$index} but list is only #{length($list)} item long for `insert-nth'.";
+    }
+    @else {
+        $result: ();
+
+        @for $i from 1 through length($list) {
+            @if $i == $index {
+                $result: append($result, $value);
+            }
+
+            $result: append($result, nth($list, $i));
+        }
+    }
+
+    @return $result;
+}
+
+///
+/// @access private
+
+@mixin _theme-properties ($settings, $rule, $variable, $function, $nth, $args...) {
+    $map: if(map-has-key($settings, $variable), $settings, $default);
+    $value: map-get($map, $variable);
+
+    @if $function == "" {
+        #{$rule}: $value;
+    }
+    @else {
+        $params: _theme-insert-nth($args, $nth, $value);
+
+        #{$rule}: call($function, $params...);
+    }
+}
+
+///
+/// @access private
+
+@mixin _theme-engine ($at-root, $rule, $variable, $function, $nth, $args...) {
+    @each $name, $settings in $themes {
+        @if ($at-root) {
+            @at-root {
+                .t-#{$name} & {
+                    @include _theme-properties($settings, $rule, $variable, $function, $nth, $args);
+                }
+            }
+        }
+        @else {
+            .theme-local.t-#{$name} & {
+                @include _theme-properties($settings, $rule, $variable, $function, $nth, $args);
+            }
+        }
+    }
+}
+
 /// This function loops through all of the available themes and generates the appropriate
 /// CSS based on the theme definition
 ///
@@ -40,22 +107,10 @@
 ///   }
 ///
 
-@mixin theme-specific ($rule, $variable, $function: "", $nth: 0, $args...) {
-    @each $name, $settings in $themes {
-        @at-root {
-            .t-#{$name} & {
-                $map: if(map-has-key($settings, $variable), $settings, $default);
-                $value: map-get($map, $variable);
+@mixin theme-global ($rule, $variable, $function: "", $nth: 0, $args...) {
+    @include _theme-engine(true, $rule, $variable, $function, $nth, $args);
+}
 
-                @if $function == "" {
-                    #{$rule}: $value;
-                }
-                @else {
-                    $params: insert-nth($args, $nth, $value);
-
-                    #{$rule}: call($function, $params...);
-                }
-            }
-        }
-    }
+@mixin theme-local ($rule, $variable, $function: "", $nth: 0, $args...) {
+    @include _theme-engine(false, $rule, $variable, $function, $nth, $args);
 }
