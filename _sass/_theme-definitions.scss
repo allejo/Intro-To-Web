@@ -1,7 +1,8 @@
 $default: (
     "site-background-color": #EBEBEB,
     "content-background-color": #FFFFFF,
-    "font-color": #000000
+    "font-color": #000000,
+    "anchor-color": #87CEEB
 );
 
 $themes: (
@@ -9,7 +10,8 @@ $themes: (
     "dark": (
         "site-background-color": #444444,
         "content-background-color": #222222,
-        "font-color": #FFFFFF
+        "font-color": #FFFFFF,
+        "anchor-color": #F4F000
     ),
     "gold": (
         "site-background-color": #D5C8BA,

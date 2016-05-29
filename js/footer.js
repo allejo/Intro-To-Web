@@ -1,5 +1,9 @@
 // Add anchors to headings
-anchors.add().remove('h1');
+anchors.options = {
+    placement: 'left',
+    visible: 'always'
+};
+anchors.add().remove('h1').remove('.no-anchor');
 
 // Site settings functionality
 function makeRemoveClassHandler(regex) {

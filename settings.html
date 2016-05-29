@@ -4,26 +4,28 @@ permalink: /settings/
 title: Settings
 ---
 
-<h1>App settings</h1>
+<article>
+    <h1>App settings</h1>
 
-<noscript>
-    <div class="alert alert-danger" role="alert">
-        <strong>Javascript Disabled</strong>
-        <p>You have JavaScript disabled on your browser, in order to take advantage of these settings please enable Javascript on your browser.</p>
-    </div>
-</noscript>
+    <noscript>
+        <div class="alert alert-danger" role="alert">
+            <strong>Javascript Disabled</strong>
+            <p>You have JavaScript disabled on your browser, in order to take advantage of these settings please enable Javascript on your browser.</p>
+        </div>
+    </noscript>
 
-<p>Configure how you'd like to view this website. This is a static website so all settings are powered by cookies on your browser; this means that if you clear your browser's cookies, switch browsers, or have cookies disabled, your settings will not be restored.</p>
+    <p>Configure how you'd like to view this website. This is a static website so all settings are powered by cookies on your browser; this means that if you clear your browser's cookies, switch browsers, or have cookies disabled, your settings will not be restored.</p>
 
-<section class="settings__colorscheme">
-    <h2>Color Scheme</h2>
+    <section class="settings__colorscheme">
+        <h2 class="no-anchor">Color Scheme</h2>
 
-    <p>The color scheme to view this website in</p>
+        <p>The color scheme to view this website in</p>
 
-    <form id="color-scheme" class="row">
-        {% include partials/color-scheme-preview.html theme="light" %}
-        {% include partials/color-scheme-preview.html theme="dark" %}
-        {% include partials/color-scheme-preview.html theme="gold" %}
-        {% include partials/color-scheme-preview.html theme="brown" %}
-    </form>
-</section>
+        <form id="color-scheme" class="row">
+            {% include partials/color-scheme-preview.html theme="light" %}
+            {% include partials/color-scheme-preview.html theme="dark" %}
+            {% include partials/color-scheme-preview.html theme="gold" %}
+            {% include partials/color-scheme-preview.html theme="brown" %}
+        </form>
+    </section>
+</article>
