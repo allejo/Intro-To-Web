@@ -12,23 +12,27 @@ function makeRemoveClassHandler(regex) {
     }
 }
 
-$(function () {
-    var colorScheme = readCookie("colorscheme");
+function createSetting (form, cookieName, prefix, regex) {
+    var cookieValue = readCookie(cookieName);
 
-    if (colorScheme) {
-        $("html").removeClass(makeRemoveClassHandler(/^t-/));
-        $("html").addClass("t-" + colorScheme);
+    if (cookieValue) {
+        $("html").removeClass(makeRemoveClassHandler(regex));
+        $("html").addClass(prefix + "-" + cookieValue);
     }
 
-    $("#color-scheme input[value=" + colorScheme + "]").prop('checked', true);
-});
+    $(form + " input[value=" + cookieValue + "]").prop('checked', true);
+    $(form).change(function () {
+        var $this = $(this);
+        var color = $this.find("[name=" + cookieName + "]:checked").val();
 
-$("#color-scheme").change(function () {
-    var $this = $(this);
-    var color = $this.find("[name=ui-colorscheme]:checked").val();
+        $("html").removeClass(makeRemoveClassHandler(regex));
+        $("html").addClass(prefix + "-" + color);
 
-    $("html").removeClass(makeRemoveClassHandler(/^t-/));
-    $("html").addClass("t-" + color);
+        createCookie(cookieName, color);
+    });
+}
 
-    createCookie("colorscheme", color);
+$(function () {
+    createSetting("#site-color-scheme", "siteColorScheme", "t", /^t-/);
+    createSetting("#code-color-scheme", "codeColorScheme", "code", /^code-/);
 });

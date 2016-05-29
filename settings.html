@@ -21,11 +21,22 @@ title: Settings
 
         <p>The color scheme to view this website in</p>
 
-        <form id="color-scheme" class="row">
+        <form id="site-color-scheme" class="row">
             {% include partials/color-scheme-preview.html theme="light" %}
             {% include partials/color-scheme-preview.html theme="dark" %}
             {% include partials/color-scheme-preview.html theme="gold" %}
             {% include partials/color-scheme-preview.html theme="brown" %}
+        </form>
+    </section>
+
+    <section class="settings__codetheme">
+        <h2 class="no-anchor">Code Color Scheme</h2>
+
+        <p>The color scheme to view the code samples in</p>
+
+        <form id="code-color-scheme" class="row">
+            {% include partials/color-scheme-code.html theme="light" %}
+            {% include partials/color-scheme-code.html theme="darkly" %}
         </form>
     </section>
 </article>

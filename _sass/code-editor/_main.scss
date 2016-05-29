@@ -11,3 +11,11 @@ pre code {
     border: 1px dotted #D0D0D0;
     width: 100%;
 }
+
+.highlight {
+    border-radius: 3px;
+    overflow: auto;
+    padding: 10px 15px;
+    white-space: pre;
+    word-wrap: normal; // horizontal scrolling
+}

@@ -1,0 +1,26 @@
+{% capture samplecode %}
+```js
+$(function() {
+    $(".accordion").click(function() {
+        var $this = $(this);
+
+        if ($this.data('status') === 'opened') {
+            // close it
+        } else {
+            // open it
+        }
+    });
+});
+```
+{% endcapture %}
+
+<div class="col-md-6 code-local">
+    <div class="colorscheme__code code-{{ include.theme }}">
+        {{ samplecode | markdownify}}
+    </div>
+    <div class="colorscheme__options">
+        <label>
+            <input type="radio" name="codeColorScheme" value="{{ include.theme }}"> {{ include.theme | capitalize }}
+        </label>
+    </div>
+</div>
