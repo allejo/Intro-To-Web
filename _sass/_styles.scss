@@ -35,6 +35,14 @@ body {
     padding: 15px 0;
 }
 
+a {
+    @include theme-global("color", "anchor-color");
+
+    &:hover {
+        @include theme-global("color", "anchor-color", darken, 1, 15%);
+    }
+}
+
 article {
     h2, h3, h4,
     h5, h6 {

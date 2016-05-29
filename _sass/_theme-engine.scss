@@ -53,13 +53,13 @@
         @if ($at-root) {
             @at-root {
                 .t-#{$name} & {
-                    @include _theme-properties($settings, $rule, $variable, $function, $nth, $args);
+                    @include _theme-properties($settings, $rule, $variable, $function, $nth, $args...);
                 }
             }
         }
         @else {
             .theme-local.t-#{$name} & {
-                @include _theme-properties($settings, $rule, $variable, $function, $nth, $args);
+                @include _theme-properties($settings, $rule, $variable, $function, $nth, $args...);
             }
         }
     }
@@ -108,9 +108,9 @@
 ///
 
 @mixin theme-global ($rule, $variable, $function: "", $nth: 0, $args...) {
-    @include _theme-engine(true, $rule, $variable, $function, $nth, $args);
+    @include _theme-engine(true, $rule, $variable, $function, $nth, $args...);
 }
 
 @mixin theme-local ($rule, $variable, $function: "", $nth: 0, $args...) {
-    @include _theme-engine(false, $rule, $variable, $function, $nth, $args);
+    @include _theme-engine(false, $rule, $variable, $function, $nth, $args...);
 }
