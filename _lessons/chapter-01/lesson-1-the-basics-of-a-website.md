@@ -4,9 +4,9 @@ title: The Basics of a Website
 
 Every website is made up of 3 fundamental technologies: HTML, CSS, and Javascript. There are plenty of websites built with languages such as C#, PHP, Python, or Ruby but those languages simply generate the HTML of a specific page.
 
-Taking a look at Facebook as an example, it is written in PHP generates HTML. Why would you want to generate HTML? A website such as Facebook has nothing but user submitted content such as statues, comments, photos, notes, etc. There is no way you can manually create timelines and unique newsfeeds for *every. single. user*.
+Taking a look at Facebook as an example, it is written in PHP, which generates HTML. Why would you want to generate HTML? A website such as Facebook has nothing but user submitted content such as statues, comments, photos, notes, etc. You need a way to automatically create timelines and unique newsfeeds for *every. single. user*.
 
-There are code samples of how a language looks like but don't worry about understanding it, we'll get to a detailed explaining in the coming chapters.
+There are code samples of how a language looks like but don't worry about understanding it, we'll get to a detailed explanation in the coming chapters.
 
 ## HTML - The structure
 
@@ -32,7 +32,7 @@ This is what HTML looks like:
 
 ## CSS - The Beauty
 
-CSS defines how a website looks; e.g. the colors, the width of elements, fonts, etc. Without CSS, sidebars could not exist because every element in HTML will take up an entire row (more on this later).
+CSS defines how a website looks; e.g. the colors, the width of elements, fonts, etc. Without CSS, sidebars could not exist because every element in HTML will take up the entire width of your browser by default  (more on this later).
 
 Here are a few things you can do with CSS:
 
@@ -58,7 +58,7 @@ This is what CSS looks like:
 
 _JavaScript (JS) is not to be confused with Java, which is an entirely different language! The names are **not** interchangeable and will be laughed at if you confuse them; possibly lose credibility at a job interview too._
 
-HTML by design is a static language meaning that once a page is loaded, you cannot change how it looks or how it behaves. Have you ever been on YouTube clicked on "Show All Replies" in the comment section? Once you click on that, more replies are shown and that is what JS.
+HTML by design is a static language meaning that once a page is loaded, you cannot change how it looks or how it behaves. Have you ever been on YouTube and clicked on "Show All Replies" in the comment section? Once you click on that, more replies are shown; this is done with JS.
 
 This is what JS looks like with jQuery:
 
