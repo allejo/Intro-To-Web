@@ -38,7 +38,10 @@ $breakpoints: (
     "bs-override",
     "helpers",
     "general",
-    "pages/lessons",
-    "pages/settings",
     "styles"
+;
+
+@import
+    "pages/lessons",
+    "pages/settings"
 ;
