@@ -19,4 +19,19 @@ layout: default
     <div class="lesson-content">
         {{ content }}
     </div>
+
+    <footer class="lesson-footer">
+        <div class="row">
+            <div class="col-xs-6 text-left">
+                {% if page.previous.url %}
+                    <a href="{{ page.previous.url }}">&laquo; {{ page.previous.title }}</a>
+                {% endif %}
+            </div>
+            <div class="col-xs-6 text-right">
+                {% if page.next.url %}
+                    <a href="{{ page.next.url }}">{{ page.next.title }} &raquo;</a>
+                {% endif %}
+            </div>
+        </div>
+    </footer>
 </article>
