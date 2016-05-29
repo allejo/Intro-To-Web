@@ -12,12 +12,22 @@ function makeRemoveClassHandler(regex) {
     }
 }
 
+function setGlobalClass (cookieName, className, regex) {
+    if (typeof disableSettings !== 'undefined' && disableSettings[cookieName] === true) {
+        return;
+    }
+
+    var $html = $("html");
+
+    $html.removeClass(makeRemoveClassHandler(regex));
+    $html.addClass(className);
+}
+
 function createSetting (form, cookieName, prefix, regex) {
     var cookieValue = readCookie(cookieName);
 
     if (cookieValue) {
-        $("html").removeClass(makeRemoveClassHandler(regex));
-        $("html").addClass(prefix + "-" + cookieValue);
+        setGlobalClass (cookieName, prefix + "-" + cookieValue, regex);
     }
 
     $(form + " input[value=" + cookieValue + "]").prop('checked', true);
@@ -25,9 +35,7 @@ function createSetting (form, cookieName, prefix, regex) {
         var $this = $(this);
         var color = $this.find("[name=" + cookieName + "]:checked").val();
 
-        $("html").removeClass(makeRemoveClassHandler(regex));
-        $("html").addClass(prefix + "-" + color);
-
+        setGlobalClass (cookieName, prefix + "-" + color, regex);
         createCookie(cookieName, color);
     });
 }
