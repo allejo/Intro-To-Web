@@ -24,3 +24,7 @@ defaults:
       type: lessons
     values:
       layout: post
+
+assets:
+  bootstrap: https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css
+  fontawesome: https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css
