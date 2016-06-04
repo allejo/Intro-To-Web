@@ -34,7 +34,9 @@ In the following picture, the container is marked by the light blue lines. The t
 
 Popular frameworks such as Bootstrap and Foundation have made the 12 column grid system the de facto but you can increase or decrease the total number of columns; from my experience 12 is actually perfect.
 
-As the name suggests, there are rows and columns in this system; rows are horizontal and columns are vertical, for the those who gets them confused (*I'm looking at one of my editors on this one*). When creating columns in the grid system, its parent must be defined as row.
+As the name suggests, there are rows and columns in this system; rows are horizontal and columns are vertical, for the those who gets them confused (*I'm looking at one of my editors on this one*). When creating columns in the grid system, its parent must be defined as a row.
+
+![Grid system]({{ '/assets/lessons/chapter-2/lesson-1/grid-system.png' | prepend: site.baseurl }})
 
 ### Example 1
 
@@ -53,6 +55,7 @@ Here's an example of how the above specification would look like in HTML using t
 <style>
     #main {
         background-color: cyan;
+        color: black;
     }
 
     #sidebar {
