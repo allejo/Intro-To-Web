@@ -19,10 +19,13 @@ body {
 
 .site-content {
     @include theme-global("background-color", "content-background-color");
-    // @include border-bottom(5px);
 
     border-radius: 10px;
-    padding: 60px;
+    padding: 30px;
+
+    @include media-query(md) {
+        padding: 60px;
+    }
 
     h1 {
         margin-bottom: 1em;
