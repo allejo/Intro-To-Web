@@ -20,7 +20,9 @@
 
     {% if include.setup %}
         <div class="collapse" id="{{ iframeID }}-setup" markdown="1">
+
             ```{{ include.lang }}{{ include.setup }}```
+
         </div>
     {% endif %}
 
@@ -56,10 +58,11 @@
 {% assign insideCode = false %}
 
 {% for line in SandboxCachePerLine %}
-    {% assign startOfLine = line | slice: 0, 7 %}
-    {% assign altStartOfLine = line | slice: 0, 3 %}
+    {% assign startOfLine = line | slice: 0, 7 %}       {% comment %}This is the normal line that is indented once{% endcomment %}
+    {% assign altStartOfLine = line | slice: 0, 3 %}    {% comment %}This is the ending line which is not indented{% endcomment %}
+    {% assign setupStartOfLine = line | slice: 0, 15 %} {% comment %}This is a special line that's indented for the "setup" code functionality{% endcomment %}
 
-    {% if startOfLine == "    ```" and insideCode == false %}
+    {% if (startOfLine == "    ```" or setupStartOfLine == "            ```") and insideCode == false %}
         {% assign insideCode = true %}
         {% capture _content %}{{ _content }}{{ line | replace: '    ', '' }}{% endcapture %}
     {% elsif altStartOfLine == "```" and insideCode == true %}
