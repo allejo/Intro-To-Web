@@ -17,6 +17,15 @@
         font-size: 28px;
         font-weight: 300;
     }
+
+    img {
+        display: block;
+        margin: {
+            left: auto;
+            right: auto;
+        }
+        max-width: 100%;
+    }
 }
 
 .lesson-footer {
