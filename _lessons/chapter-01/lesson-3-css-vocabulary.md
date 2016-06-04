@@ -4,7 +4,7 @@
 title: CSS Vocabulary
 ---
 
-Cascading Style Sheets (CSS) are used to, as the name suggests, style elements in a website. The CSS for a website should be in it's own file with a `.css` extension in order to be reused throughout the website. The most important part about writing CSS is to make as much of it reusable.
+Cascading Style Sheets (CSS) are used to, as the name suggests, style elements in a website. The CSS for a website should be in its own file with a `.css` extension in order to be reused throughout the website. The most important part about writing CSS is to make as much of it reusable.
 
 ## Comments
 
@@ -16,6 +16,12 @@ Comments begin with `/*` and end with `*/` and have no effect with regards to ho
 body {
     background-color: #EFEFEF;
 }
+
+/*
+.broken-code {
+    content: 'I am broken';
+}
+*/
 ```
 
 ## Rule Set
@@ -50,7 +56,7 @@ The selector of a rule set defines the element the following declarations will b
 
 ### Element Type Selector
 
-An element type selector will apply the follow declarations to every HTML element in that page. Be careful which HTML elements you use as this can lead to unintended results; for example, writing a rule set for a `div` (the most common HTML tag) would be a mistake but writing rule set for an `a` tag would be appreciate since all anchors should be treated the same with only a few exceptions.
+An element type selector will apply the follow declarations to every HTML element in that page. Be careful which HTML elements you use as this can lead to unintended results; for example, writing a rule set for a `div` (the most common HTML tag) would be a mistake but writing rule set for an `a` tag would be appropriate since all anchors should be treated the same with only a few exceptions.
 
 ```css
 /* matches an HTML element by name */
@@ -87,7 +93,7 @@ ID selectors begin with an octothorpe (`#`). CSS is redesigned with reusability 
 
 ### Universal Selector
 
-The universal selector is defined as an asterisk (`*`) and it will apply to any element in the given context, e.g. a wild card for HTML elements. Its usage is rare and is generally discouraged, unless it's absolutely necessary, due to performance reasons.
+The universal selector is defined as an asterisk (`*`) and it will apply to any element in the given context, i.e. a wild card for HTML elements. Its usage is rare and is generally discouraged, unless it's absolutely necessary, due to performance reasons.
 
 ```css
 /* the asterisk character is the universal selector */
@@ -119,7 +125,7 @@ input[type="text"] {
 
 ## Pseudo-Class
 
-Pseudo-classes use the following syntax: `:class-name` (notice the beginning colon `:`) and are **not** declared in HTML.
+Pseudo-classes use the following syntax: `:class-name` (notice the beginning colon `:`) and are **not** declared in HTML. These psuedo-classes are automatically applied to elements based on certain events such as hovering over an element, selecting an element, or focusing on an element.
 
 ```css
 /* ":hover" is the pseudo-class */
