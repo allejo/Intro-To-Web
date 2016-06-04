@@ -6,17 +6,39 @@
 {% capture _content %}{% endcapture %}
 
 {% capture SandboxCache %}
-    <p><strong>{{ include.lang | upcase }}</strong></p>
+    <p>
+        <strong>{{ include.lang | upcase }}</strong>
+
+        {% if include.setup %}
+            <small>
+                <a data-toggle="collapse" href="#{{ iframeID }}-setup" aria-expanded="false" aria-controls="{{ iframeID }}-setup">
+                    [Show Setup]
+                </a>
+            </small>
+        {% endif %}
+    </p>
+
+    {% if include.setup %}
+        <div class="collapse" id="{{ iframeID }}-setup" markdown="1">
+            ```{{ include.lang }}{{ include.setup }}```
+        </div>
+    {% endif %}
 
     ```{{ include.lang }}{{ include.code }}```
 
     <p><strong>Output</strong></p>
 
     {% if include.lang == "html" %}
-        <iframe id="{{ iframeID }}" class="code-sandbox"></iframe>
-        <script>
-            setIframeContents("{{ iframeID }}", "{{ include.code | strip_newlines | replace: '"', '\"' }}");
-        </script>
+        {% capture code %}{{ include.setup }} {{ include.code }}{% endcapture %}
+
+        {% if include.sandbox == false %}
+            {{ code }}
+        {% else %}
+            <iframe id="{{ iframeID }}" class="code-sandbox"></iframe>
+            <script>
+                setIframeContents("{{ iframeID }}", "{{ code | strip_newlines | replace: '"', '\"' }}");
+            </script>
+        {% endif %}
 
         {% assign SANDBOX_COUNTER = SANDBOX_COUNTER | plus: 1 %}
     {% elsif include.lang == "scss" %}
