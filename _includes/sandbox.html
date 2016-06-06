@@ -1,11 +1,12 @@
 {% capture newline %}
 {% endcapture %}
 
-{% assign SANDBOX_COUNTER = 1 %}
-{% capture iframeID %}sandbox-{{ SANDBOX_COUNTER }}{% endcapture %}
 {% capture _content %}{% endcapture %}
 
 {% capture SandboxCache %}
+    {% assign SANDBOX_COUNTER = SANDBOX_COUNTER | plus: 1 %}
+    {% capture iframeID %}sandbox-{{ SANDBOX_COUNTER }}{% endcapture %}
+
     <p>
         <strong>{{ include.lang | upcase }}</strong>
 
@@ -41,8 +42,6 @@
                 setIframeContents("{{ iframeID }}", "{{ code | strip_newlines | replace: '"', '\"' }}");
             </script>
         {% endif %}
-
-        {% assign SANDBOX_COUNTER = SANDBOX_COUNTER | plus: 1 %}
     {% elsif include.lang == "scss" %}
         ```scss
         {{ include.code | scssify }}
