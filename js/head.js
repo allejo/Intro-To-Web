@@ -30,15 +30,25 @@ function eraseCookie(name) {
 // iframe functionality
 
 function setIframeContents (id, content) {
-    var iframe = document.getElementById(id);
-    iframe = iframe.contentWindow ?
-         iframe.contentWindow :
-         (
-             iframe.contentDocument.document ?
-             iframe.contentDocument.document :
-             iframe.contentDocument
-         );
-    iframe.document.open();
-    iframe.document.write(content);
-    iframe.document.close();
+    var iframe  = document.getElementById(id);
+    var sandbox = iframe.contentWindow ?
+        iframe.contentWindow :
+        (
+            iframe.contentDocument.document ?
+            iframe.contentDocument.document :
+            iframe.contentDocument
+        );
+
+    content = "<style>body { margin: 0; }</style>" + content;
+
+    sandbox.document.open();
+    sandbox.document.write(content);
+    sandbox.document.close();
+
+    // Reize the iframe to fit its content
+    var newheight = iframe.contentWindow.document .body.scrollHeight;
+    var newwidth  = iframe.contentWindow.document .body.scrollWidth;
+
+    iframe.height = (newheight) + "px";
+    iframe.width = (newwidth) + "px";
 }

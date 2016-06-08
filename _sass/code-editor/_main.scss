@@ -12,6 +12,10 @@ pre code {
     width: 100%;
 }
 
+.code-sandbox--frameless {
+    border: none;
+}
+
 .highlight {
     border-radius: 3px;
     overflow: auto;

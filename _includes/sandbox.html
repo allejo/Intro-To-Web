@@ -37,7 +37,7 @@
         {% if include.sandbox == false %}
             {{ code }}
         {% else %}
-            <iframe id="{{ iframeID }}" class="code-sandbox"></iframe>
+            <iframe id="{{ iframeID }}" class="code-sandbox {% if include.frameless %}code-sandbox--frameless{% endif %}"></iframe>
             <script>
                 setIframeContents("{{ iframeID }}", "{{ code | strip_newlines | replace: '"', '\"' }}");
             </script>
