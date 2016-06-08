@@ -34,6 +34,12 @@ To get started, we will need to create CSS classes that can be reused to create 
 
 The `.row` class is used to maintain the width of this element and to keep all of the floated elements inside of the container. Floated elements will escape its parent container if the "clearfix hack" is not used.
 
+When writing these classes, it is important to keep in mind to write as few classes as possible and ensure that they can be combined with other classes. In this example, to achieve an element that is 150px by 50px in size you would not want to write a class that has those dimensions hard coded; instead, you would want to have separate classes so the sizes can be reused. By combining two classes, you can achieve these dimensions and you'd be able to reuse one of those classes if you need to create an element that's 150px by 100px.
+
+<div class="alert alert-warning">
+    <p>Do note, that combining classes only work when the properties can work in conjunction, for example `width` and `height` do not conflict and can work when put together. This approach does not allow you to use addition so you would not be able to combine two `.col-w-*` classes and expect to get the sum of them, instead you would just be overriding one of the values.</p>
+</div>
+
 {% capture rowColSetup %}
 <style>
     .row { width: 300px; }
@@ -66,6 +72,8 @@ The `.row` class is used to maintain the width of this element and to keep all o
 ```css{{ rowColSetup }}```
 
 The first row we will be creating can be seen below; each of the colored elements will be referred to as a cell. First we must define that we want a row of cells so we start by creating an element with the `row` class.
+
+The `<div>` tag is one of the most heavily used tags in HTML and should be used for divisions in layouts or to create "objects," so to speak (more on this later). All HTML elements can use the `class` attribute, which has support for multiple classes delimited by spaces as described above.
 
 {% capture firstRow %}
 <div class="row">
