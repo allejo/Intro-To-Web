@@ -34,3 +34,18 @@ A tag with multiple attributes have them split with a single space or a new line
 ```html
 <a href="#" title="I'm a title">Click me!</a>
 ```
+
+## Parents & Children
+
+![Parent/children hierarchy]({{ '/assets/lessons/chapter-1/lesson-2/hierarchy.png' | prepend: site.baseurl }})
+
+HTML elements are nested and can be seen as a family tree. In the above example, Andrew would be the parent and Barbara would be a child of Andrew. The same would apply to code and is based on what elements are inside each other. Keep in mind, just because an element is a child, that does not mean that it cannot also be a parent to more elements (e.g. Barbara is the parent of Dawn).
+
+```html
+<div class="parent">
+    <div class="parent child">
+        <div class="child grandchild"></div>
+    </div>
+    <div class="child"></div>
+</div>
+```
