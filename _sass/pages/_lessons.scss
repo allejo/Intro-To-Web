@@ -12,6 +12,46 @@
     }
 }
 
+.lesson-step {
+   margin-bottom: 15px;
+   position: relative;
+   text-align: center;
+
+   p {
+       $_size: 24px;
+
+       @include theme-global("background-color", "alternate-color");
+
+       border-radius: 50%;
+       color: #FFFFFF;
+       display: inline-block;
+       margin-bottom: 0;
+
+       line-height: $_size;
+       height: $_size;
+       width: $_size;
+
+       &:after,
+       &:before {
+           @include theme-global("background-color", "alternate-color");
+
+           content: '';
+           height: 1px;
+           margin-top: 10px;
+           position: absolute;
+           width: 40%;
+       }
+
+       &:after {
+           right: 0;
+       }
+
+       &:before {
+           left: 0;
+       }
+   }
+}
+
 .lesson-content {
     h2 {
         font-size: 28px;

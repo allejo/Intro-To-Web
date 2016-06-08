@@ -22,7 +22,7 @@ Something to keep in mind is the fact that with code, there is never a wrong ans
 
 ## Step 1
 
-The first step is to use our best judgement and split up the design into rows. Take note, with this example there are *several* different ways of setting this up but this tutorial will take you on only one of them.
+The first step is to use our best judgement and split up the design into rows. Take note, with this example there are *several* different ways of setting this up but this tutorial will take you on only one of them with 3 rows.
 
 ![Layout Challenge 1 split into rows]({{ '/assets/lessons/chapter-2/lesson-2/layout-challenge-1-rows.png' | prepend: site.baseurl }})
 
@@ -37,7 +37,7 @@ The `.row` class is used to maintain the width of this element and to keep all o
 When writing these classes, it is important to keep in mind to write as few classes as possible and ensure that they can be combined with other classes. In this example, to achieve an element that is 150px by 50px in size you would not want to write a class that has those dimensions hard coded; instead, you would want to have separate classes so the sizes can be reused. By combining two classes, you can achieve these dimensions and you'd be able to reuse one of those classes if you need to create an element that's 150px by 100px.
 
 <div class="alert alert-warning" role="alert">
-    <strong>Heads up!</strong> Combining classes only work when the properties can work in conjunction, for example `width` and `height` do not conflict and can work when put together. This approach does not allow you to use addition so you would not be able to combine two `.col-w-*` classes and expect to get the sum of them, instead you would just be overriding one of the values.
+    <span markdown="1">**Heads up!** Combining classes only works when the properties can work in conjunction, for example `width` and `height` do not conflict and can work when put together. This approach does not allow you to use addition so you would not be able to combine two `.col-w-*` classes and expect to get the sum of them, instead you would just be overriding one of the values.</span>
 </div>
 
 {% capture rowColSetup %}
@@ -54,6 +54,7 @@ When writing these classes, it is important to keep in mind to write as few clas
     .col-w-1, .col-w-2,
     .col-w-3, .col-w-4 {
         float: left;
+        position: relative;
     }
     .col-w-1 { width: 50px; }
     .col-w-2 { width: 100px; }
@@ -71,9 +72,11 @@ When writing these classes, it is important to keep in mind to write as few clas
 
 ```css{{ rowColSetup }}```
 
-The first row we will be creating can be seen below; each of the colored elements will be referred to as a cell. First we must define that we want a row of cells so we start by creating an element with the `row` class.
+### First Row
 
-The `<div>` tag is one of the most heavily used tags in HTML and should be used for divisions in layouts or to create "objects," so to speak (more on this later). All HTML elements can use the `class` attribute, which has support for multiple classes delimited by spaces as described above.
+The first row we will be creating can be seen below; each of the colored elements will be referred to as a cell. First we must define that we want a row of cells so we start by creating an element with the `row` class, which is limited to 300px width. By limiting the width, floats will be automatically move to the next line if it does not fit in its parent.
+
+The `<div>` tag is one of the most heavily used tags in HTML and should be used for divisions in layouts or to create "objects," so to speak (more on this later). All HTML elements can use the `class` attribute, which has support for multiple classes being combined, delimited by spaces, as described above.
 
 {% capture firstRow %}
 <div class="row">
@@ -84,9 +87,46 @@ The `<div>` tag is one of the most heavily used tags in HTML and should be used 
 </div>
 {% endcapture %}
 
-{% include sandbox.html lang="html" code=firstRow setup=rowColSetup %}
+{% include sandbox.html lang="html" code=firstRow setup=rowColSetup frameless=1 %}
 
-@todo Write next section
+### Second Row
+
+The only shape available in HTML are rectangles (*squares are rectangles*); all of the other shapes you can create such as triangles or ovals, are still rectangles but are partially transparent to create those shapes.
+
+<div class="row">
+    <div class="col-md-4">
+        <img src="{{ '/assets/lessons/chapter-2/lesson-2/layout-challenge-1-second-split-1.png' | prepend: site.baseurl }}"
+             alt="Splitting option 1" />
+
+        <div class="lesson-step">
+            <p>1</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <img src="{{ '/assets/lessons/chapter-2/lesson-2/layout-challenge-1-second-split-2.png' | prepend: site.baseurl }}"
+             alt="Splitting option 2" />
+
+        <div class="lesson-step">
+            <p>2</p>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <img src="{{ '/assets/lessons/chapter-2/lesson-2/layout-challenge-1-second-split-3.png' | prepend: site.baseurl }}"
+             alt="Splitting option 3" />
+
+        <div class="lesson-step">
+            <p>3</p>
+        </div>
+    </div>
+</div>
+
+1. As mentioned, all shapes in HTML are rectangular so the blue tetris piece can not be recreated as-is. There are ways of mocking this sort of shape with absolute positioning, and multiple elements but it's harder to maintain and not feasible.
+1. This option consists of nothing but rectangles so it can be created easily with vanilla HTML and CSS.
+1. The same as option 2 applies to this option.
+
+In this example, we'll be going with option 2 (as seen below). Options 2 and 3 take advantage of floats being contained within its parents so they will automatically wrap to the next line. This means that all 150px by 50px blocks will stack up on each other since they continue to wrap to the next line.
+
+*If you add another element after the last red block, it'll wrap to the next line and appear under the purple square.*
 
 {% capture secondRow %}
 <div class="row">
@@ -98,7 +138,56 @@ The `<div>` tag is one of the most heavily used tags in HTML and should be used 
 </div>
 {% endcapture %}
 
-{% include sandbox.html lang="html" code=secondRow setup=rowColSetup %}
+{% include sandbox.html lang="html" code=secondRow setup=rowColSetup frameless=1 %}
+
+#### Absolute Positioning
+
+You may have noticed that our output does not exactly look like our picture for this row (i.e. there are no green and blue squares inside of the purple square). These squares can be placed in a fixed location with the `position` propery and using the `absolute` value.
+
+In order to use `position: absolute`, the parent must have `position: relative` or else the child element will be relative to the browser, which is not what we want because resizing the browser will cause all sorts of issues.
+
+To achieve our goal, we will be adding new cells inside of our parent in order for them to be positioned absolutely with respect to the parent. We will create a `.col-absolute` class which will have the `position` property and we have it as a separate class because it will be reused by different elements that can be placed in different locations. Notice, we will also be reusing the classes we created earlier to set the cell height.
+
+{% capture secondRowAbsolute %}
+<style>
+    .col-absolute {
+        position: absolute;
+    }
+
+    .col-center {
+        bottom: 0;
+        overflow: auto;
+        left: 0;
+        margin: auto;
+        right: 0;
+        top: 0;
+    }
+
+    .col-top-left {
+        top: 25px;
+        left: 25px;
+    }
+
+    .col-bottom-right {
+        bottom: 25px;
+        right: 25px;
+    }
+</style>
+
+<div class="row">
+    <div class="col-w-3 col-h-3 color-purple">
+        <div class="col-w-1 col-h-1 col-absolute col-top-left color-blue"></div>
+        <div class="col-w-1 col-h-1 col-absolute col-bottom-right color-blue"></div>
+        <div class="col-w-1 col-h-1 col-absolute col-center color-green"></div>
+    </div>
+    <div class="col-w-1 col-h-3 color-blue"></div>
+    <div class="col-w-2 col-h-1 color-blue"></div>
+    <div class="col-w-2 col-h-1 color-green"></div>
+    <div class="col-w-2 col-h-1 color-red"></div>
+</div>
+{% endcapture %}
+
+{% include sandbox.html lang="html" code=secondRowAbsolute setup=rowColSetup frameless=1 %}
 
 @todo Write last section
 
@@ -109,4 +198,4 @@ The `<div>` tag is one of the most heavily used tags in HTML and should be used 
 </div>
 {% endcapture %}
 
-{% include sandbox.html lang="html" code=thirdRow setup=rowColSetup %}
+{% include sandbox.html lang="html" code=thirdRow setup=rowColSetup frameless=1 %}
