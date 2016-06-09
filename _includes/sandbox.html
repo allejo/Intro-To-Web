@@ -57,14 +57,13 @@
 {% assign insideCode = false %}
 
 {% for line in SandboxCachePerLine %}
-    {% assign startOfLine = line | slice: 0, 7 %}       {% comment %}This is the normal line that is indented once{% endcomment %}
-    {% assign altStartOfLine = line | slice: 0, 3 %}    {% comment %}This is the ending line which is not indented{% endcomment %}
-    {% assign setupStartOfLine = line | slice: 0, 15 %} {% comment %}This is a special line that's indented for the "setup" code functionality{% endcomment %}
+    {% assign startsWithIndentation = line | slice: 0, 4 %}        {% comment %}The line begins with indentation; this file is 4 space indented, so that's what we're expecting{% endcomment %}
+    {% assign codeFenceBlockStart = line | lstrip | slice: 0, 3 %} {% comment %}The line would be the beginning of a fenced code block{% endcomment %}
 
-    {% if (startOfLine == "    ```" or setupStartOfLine == "            ```") and insideCode == false %}
+    {% if startsWithIndentation == "    " and codeFenceBlockStart == "```" and insideCode == false %}
         {% assign insideCode = true %}
         {% capture _content %}{{ _content }}{{ line | replace: '    ', '' }}{% endcapture %}
-    {% elsif altStartOfLine == "```" and insideCode == true %}
+    {% elsif codeFenceBlockStart == "```" and insideCode == true %}
         {% assign insideCode = false %}
         {% capture _content %}{{ _content }}$$$${{ line | replace: '    ', '' }}{% endcapture %}
     {% else %}
