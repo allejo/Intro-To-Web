@@ -27,6 +27,14 @@ body {
         padding: 60px;
     }
 
+    a:not(.btn) {
+        @include theme-global("color", "anchor-color");
+
+        &:hover {
+            @include theme-global("color", "anchor-color", darken, 1, 15%);
+        }
+    }
+
     h1 {
         margin-bottom: 1em;
         margin-top: 0;
@@ -36,14 +44,6 @@ body {
 .site-footer {
     margin: 15px 0;
     padding: 15px 0;
-}
-
-a {
-    @include theme-global("color", "anchor-color");
-
-    &:hover {
-        @include theme-global("color", "anchor-color", darken, 1, 15%);
-    }
 }
 
 article {
