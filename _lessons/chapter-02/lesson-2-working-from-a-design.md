@@ -20,9 +20,9 @@ For this lesson, we will be recreating the following image with floats and absol
 
 Something to keep in mind is the fact that with code, there is never a wrong answer. There may be poor implementations or inefficient solutions, but that doesn't mean it's wrong unless it does not do what it's supposed to do.
 
-## Step 1
+## Let's Get Started
 
-The first step is to use our best judgement and split up the design into rows. Take note, with this example there are *several* different ways of setting this up but this tutorial will take you on only one of them with 3 rows.
+To begin, we our best judgement and split up the design into rows. Take note, with this example there are *several* different ways of setting this up but this tutorial will take you on only one of them with 3 rows.
 
 ![Layout Challenge 1 split into rows]({{ '/assets/lessons/chapter-2/lesson-2/layout-challenge-1-rows.png' | prepend: site.baseurl }})
 
@@ -148,6 +148,10 @@ In order to use `position: absolute`, the parent must have `position: relative` 
 
 To achieve our goal, we will be adding new cells inside of our parent in order for them to be positioned absolutely with respect to the parent. We will create a `.col-absolute` class which will have the `position` property and we have it as a separate class because it will be reused by different elements that can be placed in different locations. Notice, we will also be reusing the classes we created earlier to set the cell height.
 
+When an element is position absolute, there are 4 properties that will be used to in order to position them relative to its parent: `top`, `right`, `bottom`, `left`. In our example, we want them to be 25px away from the edge of the parent's container so we will use `top` and `left` to position the top left element.
+
+Another property that is often used in conjuction to `position: absolute` is the `z-index` property. This property defines the order the elements appear front to back; the higher the value, the further in front it will be. For example, an element with a `z-index: 1` will be in front of an element with without a `z-index` but will be behind an element with `z-index: 5`. This can be seen in our example where we define the green cell first (therefore, making it appear at the very back) but tell it to appear in the front by giving it a `z-index`, which takes precedence over all of the elements without `z-index` values.
+
 {% capture secondRowAbsolute %}
 <style>
     .col-absolute {
@@ -156,11 +160,13 @@ To achieve our goal, we will be adding new cells inside of our parent in order f
 
     .col-center {
         bottom: 0;
-        overflow: auto;
         left: 0;
-        margin: auto;
         right: 0;
         top: 0;
+        overflow: auto;
+        margin: auto;
+
+        z-index: 1;
     }
 
     .col-top-left {
@@ -176,9 +182,9 @@ To achieve our goal, we will be adding new cells inside of our parent in order f
 
 <div class="row">
     <div class="col-w-3 col-h-3 color-purple">
+    <div class="col-w-1 col-h-1 col-absolute col-center color-green"></div>
         <div class="col-w-1 col-h-1 col-absolute col-top-left color-blue"></div>
         <div class="col-w-1 col-h-1 col-absolute col-bottom-right color-blue"></div>
-        <div class="col-w-1 col-h-1 col-absolute col-center color-green"></div>
     </div>
     <div class="col-w-1 col-h-3 color-blue"></div>
     <div class="col-w-2 col-h-1 color-blue"></div>
@@ -189,7 +195,9 @@ To achieve our goal, we will be adding new cells inside of our parent in order f
 
 {% include sandbox.html lang="html" code=secondRowAbsolute setup=rowColSetup frameless=1 %}
 
-@todo Write last section
+### Third Row
+
+Lastly, comes our final and most difficult row. This is no different from the previous two rows and you should understand how it works. By putting all of these snippets together, you'll be able to achieve our final product.
 
 {% capture thirdRow %}
 <div class="row">
@@ -199,3 +207,14 @@ To achieve our goal, we will be adding new cells inside of our parent in order f
 {% endcapture %}
 
 {% include sandbox.html lang="html" code=thirdRow setup=rowColSetup frameless=1 %}
+
+## On Your Own
+
+<div class="alert alert-warning">
+    <strong>Heads up!</strong> Please only accept the assignment if you are part of the Youth Tech Program; otherwise, fork the repository and work there.
+</div>
+
+There is an assignment available on GitHub to practice what you have learned in this lesson.
+
+<a href="https://github.com/YouthTechProgram/2.2-floats-positioning" class="btn btn-primary">GitHub Repository</a>
+<a href="https://classroom.github.com/assignment-invitations/75e6bdbd6048c42df078f547e2c9bf64" class="btn btn-warning">Accept Assignment</a>
