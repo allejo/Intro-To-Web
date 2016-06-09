@@ -1,5 +1,5 @@
 ---
-title: Working from a Design (part 1)
+title: Working from a Design (Part 1)
 ---
 
 When working on a team with graphic designers or to create mockups, it is often faster and easier to create a website design with a tool such as Photoshop, Illustrator, or MS Paint. I recommend creating a wireframe or design before you even start writing code as changing something in Photoshop will often be far quicker and easier than rewriting an entire section of a website.
