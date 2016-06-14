@@ -134,3 +134,16 @@ a:hover {
   text-decoration: none;
 }
 ```
+
+## Pseudo-Elements
+
+Pseudo-elements use the following syntax: `::pseudo-element`; notice how there are two colons instead of one. This is intentional in order to differentiate between pseudo-classes and pseudo-elements. Just like pseudo-classes, these elements are not explicitly declared in HTML. In the following example, a new transparent element (100px by 20px) will be added *before* an `.example` element.
+
+```css
+.example::before {
+  content: '';
+  display: block;
+  width: 100px;
+  height: 20px;
+}
+```
