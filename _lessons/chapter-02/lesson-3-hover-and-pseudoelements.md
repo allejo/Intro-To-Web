@@ -2,6 +2,8 @@
 title: Lesson 3
 ---
 
+## Hover
+
 `:hover` is a pseudo-class. As you learned in the "CSS Vocabulary" chapter, a pseudo-class is automatically applied to elements based on certain events. In this case, the event is hovering over an element. 
 
 In this lesson, you will create a row of elements and add the `:hover` pseudo-class to the elements to make a description of the element appear underneath it.
@@ -136,4 +138,65 @@ Those lines of code will display the dropdown block when the original block is h
 
 {% include sandbox.html lang="html" code=dropdownExample setup=hoverSetup frameless=1 %}
 
+## Pseudo-Elements
+
+Now we will go over pseudo-elements. A pseudo-element is used to style specific parts of an element. An example of a pseudo-element would be to style the first letter in each specified element in the code.
+
+The syntax for a general pseudo-element is as follows:
+
+```css
+selector::pseudo-element {
+    property:value;
+    }
+```
+The two pseudo-elements that we are going to go over today are `::before` and `::after`.
+
+As the names suggest, these pseudo-elements are pretty straightforward. They just insert some content before or after specified elements in the code. An example of the `::before` pseudo-element is as follows, where we insert some text content before the h1 element:
+
+```css
+h1::before {
+    content: "Using the before pseudo-element";
+    }
+```
+
+{% capture beforeExample %}
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        h2::before{
+             content: "This is inserted using the ::before pseudo-element...";
+             }
+        </style>
+    </head>
+    
+    <body>
+        <h1>This is a H1 header</h1>
+    </body
+</html>
+{% endcapture %}
+
+{% include sandbox.html lang="html" code=beforeExample frameless=1 %}
+
+The `::after` pseudo-element is just as simple, except now we insert the content in front of the specified element. An example of this pseudo-element is as follows, where we can insert a picture in front of the h2 elements.
+
+{% capture afterExample %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        h2::after{
+             content: url(http://emojipedia-us.s3.amazonaws.com/cache/4a/bc/4abc340cf5d893ff4bf6ebc17b29c221.png);
+             }
+        </style>
+    </head>
+    
+    <body>
+        <h2>This is a H2 header</h2>
+    </body
+</html>
+{% endcapture %}
+
+{% include sandbox.html lang="html" code=afterExample frameless=1 %}
 
