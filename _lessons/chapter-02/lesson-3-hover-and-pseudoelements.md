@@ -200,3 +200,28 @@ The `::after` pseudo-element is just as simple, except now we insert the content
 
 {% include sandbox.html lang="html" code=afterExample frameless=1 %}
 
+Finally, you can alter the same element with multiple pseudo-elements, meaning that you can use the `::before` and `::after` pseudo-elements to insert content before and after the same element. An example of this would be as follows, where we insert text before the h3 element and insert more text after the h3 element:
+
+{% capture bothExample %}
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+        h2::after{
+             content: "This text was inserted after the h3 tag.";
+             }
+        
+        h2::before{
+             content: "This text was inserted before the h3 tag.";
+             }
+        </style>
+    </head>
+    
+    <body>
+        <h3>This is a H3 header</h3>
+    </body
+</html>
+{% endcapture %}
+
+{% include sandbox.html lang="html" code=bothExample frameless=1 %}
+
