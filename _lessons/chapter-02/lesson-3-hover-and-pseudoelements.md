@@ -34,3 +34,106 @@ For example:
 
 {% include sandbox.html lang="html" code=hoverExample frameless=1 %}
 
+Now, let's do something a little more advanced. We'll create a row of three blocks that will display a dropdown box with the name of the color of the block when you hover over it.
+
+{% capture hoverSetup %}
+<style>
+    .row { width: 300px; }
+    .row:after { content: ""; display: table; clear: both; } /* Clearfix hack */
+
+    /* Height classes */
+    .col-h-1 { height: 50px; }
+    .col-h-2 { height: 100px; }
+    .col-h-3 { height: 150px; }
+
+    /* Width classes */
+    .col-w-1, .col-w-2,
+    .col-w-3, .col-w-4 {
+        float: left;
+        position: relative;
+    }
+    .col-w-1 { width: 50px; }
+    .col-w-2 { width: 100px; }
+    .col-w-3 { width: 150px; }
+    .col-w-4 { width: 200px; }
+
+    /* Color classes */
+    .color-red    { background-color: #DB4A4A; }
+    .color-purple { background-color: #DA4DC1; }
+    .color-green  { background-color: #6DDB4B; }
+    .color-yellow { background-color: #DADC4A; }
+    .color-blue   { background-color: #4A6CD9; }
+
+    /* Content of the dropdown */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100px;
+        color: white;
+        width: 100%;
+    }
+
+    /* Show the dropdown when hovered over */
+    div:hover .dropdown-content {
+        background-color: black;
+        display: block;
+    }
+</style>
+{% endcapture %}
+
+### Creating the row of colored blocks
+
+We'll take what you learned from the previous lesson and create a row of three different colored blocks. I challenge you to do this on your own. If you need a refresher, refer back to the previous chapter. The HTML code is as follows:
+
+{% capture coloredBlocks %}
+<div class="col-w-3 col-h-2 color-red"></div>
+<div class="col-w-3 col-h-2 color-green"></div>
+<div class="col-w-3 col-h-2 color-yellow"></div>
+{% endcapture %}
+
+{% include sandbox.html lang="html" code=coloredBlocks setup=hoverSetup frameless=1 %}
+
+### Adding the dropdown
+
+This is where things ramp up. In the style sheet, you can see we added the declaration of `.dropdown-content`:
+```
+.dropdown-content {
+        display: none;
+        position: absolute;
+        top: 100px;
+        width: 100%;
+        color: white;
+    }
+```
+
+- The `display: none` property ensures that the content will be hidden at first.
+- The `position` and `top` properties ensure that the content will appear 100 pixels from the top of the block (aka the height of the block)
+- The `width: 100%` property ensures that the dropdown block will only be as wide as the block itself
+
+You can see we also added a declaration for `:hover`:
+```
+div:hover .dropdown-content {
+        background-color: black;
+        display: block;
+    }
+```
+
+Those lines of code will display the dropdown block when the original block is hovered over. 
+
+{% capture dropdownExample %}
+<div class="col-w-3 col-h-2 color-red">
+    <div class="dropdown-content">Red</div>
+ </div>
+        
+<div class="col-w-3 col-h-2 color-green">
+    <div class="dropdown-content">Green</div>
+</div>
+        
+<div class="col-w-3 col-h-2 color-yellow">
+    <div class="dropdown-content">Yellow</div>
+</div>
+{% endcapture %}
+
+{% include sandbox.html lang="html" code=dropdownExample setup=hoverSetup frameless=1 %}
+
+
