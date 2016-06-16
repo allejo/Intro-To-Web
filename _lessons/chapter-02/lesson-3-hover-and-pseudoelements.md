@@ -107,7 +107,7 @@ This is where things ramp up. In the style sheet, you can see we added the decla
 ```
 
 - The `display: none` property ensures that the content will be hidden at first.
-- The `position` and `top` properties ensure that the content will appear 100 pixels from the top of the block (aka the height of the block)
+- The `position` and `top` properties ensure that the content will appear 100 pixels from the top of the block (aka it will appear right below the block)
 - The `width: 100%` property ensures that the dropdown block will only be as wide as the block itself
 
 You can see we also added a declaration for `:hover`:
