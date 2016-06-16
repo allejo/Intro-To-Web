@@ -13,19 +13,24 @@ The basic syntax of the `:hover` pseudo-class is:
 }
 ```
 For example:
-
-{% capture hoverSetup %}
-<style>
-    p:hover {
-        background-color: yellow;
-    }
-</style>
-{% endcapture %}
-
 {% capture hoverExample %}
 
-<p> Hover over me and see what happens! </p>
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            p:hover { 
+                background-color: yellow; 
+            }
+        </style>
+    </head>
+    
+    <body>
+        <p> Hover over me and see what happens! </p>
+    </body>
+</html>
 
 {% endcapture %}
 
-{% include sandbox.html lang="html" code=hoverExample setup=hoverSetup frameless=1 %}
+{% include sandbox.html lang="html" code=hoverExample frameless=1 %}
+
