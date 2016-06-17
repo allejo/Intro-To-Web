@@ -207,11 +207,11 @@ Finally, you can alter the same element with multiple pseudo-elements, meaning t
 <html>
     <head>
         <style>
-        h2::after{
+        h3::after{
              content: "This text was inserted after the h3 tag.";
              }
         
-        h2::before{
+        h3::before{
              content: "This text was inserted before the h3 tag.";
              }
         </style>
