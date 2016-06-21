@@ -53,6 +53,10 @@
 }
 
 .lesson-content {
+    a:not(.anchorjs-link) {
+        text-decoration: underline;
+    }
+
     h2 {
         font-size: 28px;
         font-weight: 300;

@@ -8,7 +8,7 @@ The first step to creating a website is to work on the layout and overall struct
 
 For this lesson, we will be recreating the following image with floats and absolute positioning.
 
-![Layout Challenge 1]({{ '/assets/lessons/chapter-2/lesson-2/layout-challenge-1.jpg' | prepend: site.baseurl }})
+![Layout Challenge 1]({{ '/assets/lessons/chapter-2/lesson-3/layout-challenge-1.jpg' | prepend: site.baseurl }})
 
 - Each square is exactly 50x50 pixels
 - Here are the hex values for the colors
@@ -24,7 +24,7 @@ Something to keep in mind is the fact that with code, there is never a wrong ans
 
 To begin, we our best judgement and split up the design into rows. Take note, with this example there are *several* different ways of setting this up but this tutorial will take you on only one of them with 3 rows.
 
-![Layout Challenge 1 split into rows]({{ '/assets/lessons/chapter-2/lesson-2/layout-challenge-1-rows.png' | prepend: site.baseurl }})
+![Layout Challenge 1 split into rows]({{ '/assets/lessons/chapter-2/lesson-3/layout-challenge-1-rows.png' | prepend: site.baseurl }})
 
 To get started, we will need to create CSS classes that can be reused to create the individual blocks. We will have 3 different sets of classes:
 
@@ -95,7 +95,7 @@ The only shape available in HTML are rectangles (*squares are rectangles*); all 
 
 <div class="row">
     <div class="col-md-4">
-        <img src="{{ '/assets/lessons/chapter-2/lesson-2/layout-challenge-1-second-split-1.png' | prepend: site.baseurl }}"
+        <img src="{{ '/assets/lessons/chapter-2/lesson-3/layout-challenge-1-second-split-1.png' | prepend: site.baseurl }}"
              alt="Splitting option 1" />
 
         <div class="lesson-step">
@@ -103,7 +103,7 @@ The only shape available in HTML are rectangles (*squares are rectangles*); all 
         </div>
     </div>
     <div class="col-md-4">
-        <img src="{{ '/assets/lessons/chapter-2/lesson-2/layout-challenge-1-second-split-2.png' | prepend: site.baseurl }}"
+        <img src="{{ '/assets/lessons/chapter-2/lesson-3/layout-challenge-1-second-split-2.png' | prepend: site.baseurl }}"
              alt="Splitting option 2" />
 
         <div class="lesson-step">
@@ -111,7 +111,7 @@ The only shape available in HTML are rectangles (*squares are rectangles*); all 
         </div>
     </div>
     <div class="col-md-4">
-        <img src="{{ '/assets/lessons/chapter-2/lesson-2/layout-challenge-1-second-split-3.png' | prepend: site.baseurl }}"
+        <img src="{{ '/assets/lessons/chapter-2/lesson-3/layout-challenge-1-second-split-3.png' | prepend: site.baseurl }}"
              alt="Splitting option 3" />
 
         <div class="lesson-step">
