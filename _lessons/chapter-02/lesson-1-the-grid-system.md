@@ -16,7 +16,7 @@ Have you ever visited a website on your phone and you have to zoom, scroll, clic
 
 ![Non-mobile responsive design]({{ '/assets/lessons/chapter-2/lesson-1/noresponsive-vs-responsive.png' | prepend: site.baseurl }})
 
-Websites being built with mobile users in mind are the norm nowadays. As the name suggests, the website is built with the mentality that mobile users are the priority and that they should come first. This doesn't mean you have you design the mobile interface before you design the desktop interface; just keep in mind how your desktop interface will look like on a smaller screen.
+Websites being built with mobile users in mind are the norm nowadays. As the name suggests, the website is built with the mentality that mobile users are the priority and that they should come first. This doesn't mean you have you design the mobile interface before you design the desktop interface; just keep in mind how your desktop interface will look like on a smaller screen. In addition, Google has started placing mobile responsive websites higher in search results than non-mobile responsive websites.
 
 ![Mobile responsive design]({{ '/assets/lessons/chapter-2/lesson-1/responsive-design.png' | prepend: site.baseurl }})
 
