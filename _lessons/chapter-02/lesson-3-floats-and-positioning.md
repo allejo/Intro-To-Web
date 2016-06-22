@@ -182,7 +182,7 @@ Another property that is often used in conjuction to `position: absolute` is the
 
 <div class="row">
     <div class="col-w-3 col-h-3 color-purple">
-    <div class="col-w-1 col-h-1 col-absolute col-center color-green"></div>
+        <div class="col-w-1 col-h-1 col-absolute col-center color-green"></div>
         <div class="col-w-1 col-h-1 col-absolute col-top-left color-blue"></div>
         <div class="col-w-1 col-h-1 col-absolute col-bottom-right color-blue"></div>
     </div>
