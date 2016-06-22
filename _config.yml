@@ -4,7 +4,7 @@ baseurl: "/Intro-To-Web"
 url: "http://yourdomain.com"
 
 repo_url: "https://github.com/allejo/Intro-To-Web"
-repo_branch: master
+repo_branch: gh-pages
 
 # Build settings
 markdown: kramdown
