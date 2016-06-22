@@ -174,3 +174,13 @@ Finally, you can alter the same element with multiple pseudo-elements, meaning t
 
 {% include sandbox.html lang="html" code=bothExample %}
 
+## On Your Own
+
+<div class="alert alert-warning">
+    <strong>Heads up!</strong> Please only accept the assignment if you are part of the Youth Tech Program; otherwise, fork the repository and work there.
+</div>
+
+There is an assignment available on GitHub to practice what you have learned in this lesson.
+
+<a href="https://github.com/YouthTechProgram/2-4-team-page" class="btn btn-primary">GitHub Repository</a>
+<a href="https://classroom.github.com/assignment-invitations/75e6bdbd6048c42df078f547e2c9bf64" class="btn btn-warning">Accept Assignment</a>

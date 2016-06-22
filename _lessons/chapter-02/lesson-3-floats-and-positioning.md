@@ -216,5 +216,5 @@ Lastly, comes our final and most difficult row. This is no different from the pr
 
 There is an assignment available on GitHub to practice what you have learned in this lesson.
 
-<a href="https://github.com/YouthTechProgram/2.2-floats-positioning" class="btn btn-primary">GitHub Repository</a>
+<a href="https://github.com/YouthTechProgram/2.3-floats-positioning" class="btn btn-primary">GitHub Repository</a>
 <a href="https://classroom.github.com/assignment-invitations/75e6bdbd6048c42df078f547e2c9bf64" class="btn btn-warning">Accept Assignment</a>
