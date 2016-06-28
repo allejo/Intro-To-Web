@@ -73,3 +73,5 @@ Here are some hints of functions that you will need to use:
 - [`$.val()`](http://api.jquery.com/val/) - This function will get the current value from an `<input>` field. So use this inside of the click function.
 
 You will continue use to Handlebars to render the templates but remember that searches may return more than one result, so how would you handle this?
+
+<a href="https://github.com/YouthTechProgram/3-4-json-api" class="btn btn-primary">GitHub Repository</a>
