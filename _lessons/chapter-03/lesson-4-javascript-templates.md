@@ -2,7 +2,7 @@
 title: Using JavaScript Templates
 ---
 
-Up until this point, you have only been working with markup languages, which does not have the same lgoic or functionality as a scripting or programming language my have (e.g. C#, Python, PHP). Enter, JavaScript.
+Up until this point, you have only been working with markup languages, which does not have the same logic or functionality as a scripting or programming language my have (e.g. C#, Python, PHP). Enter, JavaScript.
 
 Web pages are static by design, meaning they cannot be change once the page has been loaded and the only way they may change is to reload the page. JavaScript allows you manipulate the Document Object Model (DOM), which consists of all of the elements on the page itself.
 
@@ -19,7 +19,7 @@ The `<script>` tag is used to either reference an external JavaScript file or to
 
 In HTML, `<script>` tags do not render anything so we will be taking advantage of this fact and define a template of how we will display movie information. We'll give this tag an ID for easy access and define the type of script as `text/x-handlebars-template` in order to avoid any confusion and have your browser attempt to execute it as JavaScript.
 
-Looking back at the previous lesson, the JSON object that we received from OMDb had a number of a keys such as `Title`, `Yaar`, and `Plot` in the object that was returned. Handlebars makes use of `{{ }}` to render variables so in the following template, we'll be telling it to output the specified keys inside of that HTML.
+Looking back at the previous lesson, the JSON object that we received from OMDb had a number of a keys such as `Title`, `Year`, and `Plot` in the object that was returned. Handlebars makes use of `{{ }}` to render variables so in the following template, we'll be telling it to output the specified keys inside of that HTML.
 
 Now, this is where we start writing some basic JavaScript and make use of jQuery. The first line we'll look at is creating a variable and storing a value in it; variables are basically boxes that store some form of information whether it be an int, boolean, float, string, or object. In this case, we will be storing the IMDb movie ID in a variable for easy access so that we can easily change it or reuse it in the future.
 
