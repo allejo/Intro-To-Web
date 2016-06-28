@@ -6,7 +6,7 @@ So far, you've learned the basics of how to code a website. While learning how t
 
 ## DNS
 
-DNS stands for **Domain Name System**. DNS is essentially a database that links a website name (such as www.google.com) and an IP address (the corresponding IP would be 216.58.209.142). When you type a URL into your browser and hit 'Enter', your computer performs a series of steps to retrieve and load the webpage for you. It first looks in its local DNS cache to find the information you need. If it's not there, it will request for information from subsequent DNS servers. Once the information is found and retreived, your computer stores a record in its local DNS cache, gets the IP address from the record, and returns this to the browser. The browser then establishes a connection to the webserver and displays the website to your screen. Amazingly, this all happens in just milliseconds.
+DNS stands for **Domain Name System**. DNS is essentially a database that links a website name (such as [google.com](https://www.google.com/)) and an IP address (the corresponding IP would be 216.58.209.142). When you type a URL into your browser and hit 'Enter', your computer performs a series of steps to retrieve and load the webpage for you. It first looks in its local DNS cache to find the information you need. If it's not there, it will request for information from subsequent DNS servers. Once the information is found and retreived, your computer stores a record in its local DNS cache, gets the IP address from the record, and returns this to the browser. The browser then establishes a connection to the webserver and displays the website to your screen. Amazingly, this all happens in just milliseconds.
 
 ## Getting a Domain Name
 
