@@ -2,7 +2,7 @@
 title: DNS, Domain Names, and Github Pages
 ---
 
-So far, you've learned the basics of how to code a website. While learning how to code a website is important, knowing how to get users to your website is just as important. In this lesson, we'll go over what DNS means and how it works, getting a domain name through www.namecheap.com, and hosting your website using Github Pages.
+So far, you've learned the basics of how to code a website. While learning how to code a website is important, knowing how to get users to your website is just as important. In this lesson, we'll go over what DNS means and how it works, getting a domain name through [namecheap.com](https://www.namecheap.com/), and hosting your website using Github Pages.
 
 ## DNS
 
@@ -10,7 +10,7 @@ DNS stands for **Domain Name System**. DNS is essentially a database that links 
 
 ## Getting a Domain Name
 
-Now that you understand the concept of DNS and translating domain names to IP addresses, we'll discuss how you can actually obtain a domain name. There are many services that allow you to buy domain names, but we'll just focus on www.namecheap.com. Once you visit the website, you'll see a huge search bar in the middle of your screen. Simply type in a domain name and see if it's available or taken. There's a good chance that the domain name you think of will already be taken.
+Now that you understand the concept of DNS and translating domain names to IP addresses, we'll discuss how you can actually obtain a domain name. There are many services that allow you to buy domain names, but we'll just focus on [namecheap.com](https://www.namecheap.com/). Once you visit the website, you'll see a huge search bar in the middle of your screen. Simply type in a domain name and see if it's available or taken. There's a good chance that the domain name you think of will already be taken.
 
 However, not every domain name is a good one. Here are some tips to help you choose a good domain name:
 
@@ -20,7 +20,7 @@ You want your domain name to be memorable and easy to type in. Avoid using commo
 
 ### 2. Keep it short (but not too short)
 
-Even if you use simple words and it's easy to remember, you don't want to register a long domain name. For example, www.thequickbrownfoxjumpsoverthelazydog.com is memorable and fairly easy to type, but it's way too long of a domain name. On the other hand, you don't want to make your domain name too short. For example, changing the previous example into www.tqbfjotld.com successfully shortens the name to the first letter of every word, but we run into the problem where it's complicated to type and not memorable. Find a middle ground, don't make the user type out an essay to get to your website.
+Even if you use simple words and it's easy to remember, you don't want to register a long domain name. For example, [thequickbrownfoxjumpsoverthelazydog.com](http://www.thequickbrownfoxjumpsoverthelazydog.com/) is memorable and fairly easy to type, but it's way too long of a domain name. On the other hand, you don't want to make your domain name too short. For example, changing the previous example into [tqbfjotld.com](www.tqbfjotld.com) successfully shortens the name to the first letter of every word, but we run into the problem where it's complicated to type and not memorable. Find a middle ground, don't make the user type out an essay to get to your website.
 
 ### 3. Avoid numbers and hypens
 
@@ -28,7 +28,7 @@ Generally, you want to avoid using numbers and hypens in a domain name since it 
 
 ### 4. Use an appropriate extension
 
-The most common domain name extension is the .com extension. Since it's so common, it'll be the default extension people type in if they don't know exactly what extension a site has. They'll just assume it ends in a .com. However, since it is so popular, that means a lot of domain names will have a .com extension and it's very likely your domain name will be taken with a .com. When you use www.namecheap.com, it will provide a list of domain name extensions that you can use in place of .com. When choosing an extension, make sure it fits in with your name and branding. For example, if I'm looking to register a domain name for a website that offers coupons to healthy and organic local markets, it'd be pretty inappropriate to use the domain name [www.naturalsavings.ninja](www.naturalsavings.ninja). (Yes, .ninja is a real extension).
+The most common domain name extension is the .com extension. Since it's so common, it'll be the default extension people type in if they don't know exactly what extension a site has. They'll just assume it ends in a .com. However, since it is so popular, that means a lot of domain names will have a .com extension and it's very likely your domain name will be taken with a .com. When you use www.namecheap.com, it will provide a list of domain name extensions that you can use in place of .com. When choosing an extension, make sure it fits in with your name and branding. For example, if I'm looking to register a domain name for a website that offers coupons to healthy and organic local markets, it'd be pretty inappropriate to use the domain name [naturalsavings.ninja](www.naturalsavings.ninja). (Yes, .ninja is a real extension).
 
 ### 5. Keep it consistent
 
